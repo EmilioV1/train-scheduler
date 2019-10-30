@@ -32,7 +32,7 @@ $("#addTrainBtn").on("click", function(){
   alert("Train Added!");
 
   $("#trainNameInput").val("");
-  $("destinationInput").val("");
+  $("#destinationInput").val("");
   $("#firstTrainInput").val("");
   $("#frequencyInput").val("");
 
