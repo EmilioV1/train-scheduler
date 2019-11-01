@@ -11,8 +11,10 @@ var firebaseConfig = {
   
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
 var trainData = firebase.database();
+var firebase = require('firebase/app');
+require('firebase/auth');
+require('firebase/database');
 
 $("#addTrainBtn").on("click", function(){
   var trainName = $("#trainNameInput").val().trim();
