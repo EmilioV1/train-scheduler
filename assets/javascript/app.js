@@ -12,7 +12,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var trainData = firebase.database();
-
+console.log("firebase connected!")
 $("#addTrainBtn").on("click", function(){
   var trainName = $("#trainNameInput").val().trim();
   var destination = $("#destinationInput").val().trim();
