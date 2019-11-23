@@ -12,7 +12,8 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var trainData = firebase.database();
-console.log("firebase connected!")
+console.log("firebase connected!");
+
 $("#addTrainBtn").on("click", function(){
   var trainName = $("#trainNameInput").val().trim();
   var destination = $("#destinationInput").val().trim();
@@ -52,6 +53,6 @@ trainData.ref().on("child_added", function(snapshot){
   console.log(minutes);
   console.log(arrival);
 
-  $("#trainTable > tBody").append("<tr><td>"+name+"</td><td>"+destination+"</td><td>"+frequency+"</td><td>"+arrival+"</td><td>"+minutes+"</td></tr>");
+  $("#trainTable").append("<tr><td>"+name+"</td><td>"+destination+"</td><td>"+frequency+"</td><td>"+arrival+"</td><td>"+minutes+"</td></tr>");
   console.log("I have been appended!");
 });
