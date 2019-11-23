@@ -16,7 +16,7 @@ console.log("firebase connected!")
 $("#addTrainBtn").on("click", function(){
   var trainName = $("#trainNameInput").val().trim();
   var destination = $("#destinationInput").val().trim();
-  var firstTrain = moment($("#firstTrainInput").val().trim(),"HH:mm").subtract(10,"years").format(x);
+  var firstTrain = moment($("#firstTrainInput").val().trim(),"HH:mm").subtract(10,"years").format("X");
   var frequency = $("#frequencyInput").val().trim();
   
   var newTrain = {
