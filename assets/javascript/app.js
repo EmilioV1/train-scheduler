@@ -36,7 +36,7 @@ $("#addTrainBtn").on("click", function(){
   $("#frequencyInput").val("");
 
   return false;
-})
+});
 
 trainData.ref().on("child_added", function(snapshot){
   var name = snapshot.val().name;
@@ -54,4 +54,4 @@ trainData.ref().on("child_added", function(snapshot){
 
   $("#trainTable > tBody").append("<tr><td>"+name+"</td><td>"+destination+"</td><td>"+frequency+"</td><td>"+arrival+"</td><td>"+minutes+"</td></tr>");
   console.log("I have been appended!");
-})
+});
