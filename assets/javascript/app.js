@@ -8,18 +8,18 @@ var firebaseConfig = {
   messagingSenderId: "848339193631",
   appId: "1:848339193631:web:53c3b3ae6e6ad3ba366a2a"
 };
-  
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var trainData = firebase.database();
 console.log("firebase connected!");
 
-$("#addTrainBtn").on("click", function(){
+$("#addTrainBtn").on("click", function () {
   var trainName = $("#trainNameInput").val().trim();
   var destination = $("#destinationInput").val().trim();
-  var firstTrain = moment($("#firstTrainInput").val().trim(),"HH:mm").subtract(10,"years").format("X");
+  var firstTrain = moment($("#firstTrainInput").val().trim(), "HH:mm").subtract(10, "years").format("X");
   var frequency = $("#frequencyInput").val().trim();
-  
+
   var newTrain = {
     name: trainName,
     destination: destination,
@@ -35,15 +35,16 @@ $("#addTrainBtn").on("click", function(){
   $("#destinationInput").val("");
   $("#firstTrainInput").val("");
   $("#frequencyInput").val("");
+
 });
 
-trainData.ref().on("child_added", function(snapshot){
+trainData.ref().on("child_added", function (snapshot) {
   var name = snapshot.val().name;
   var destination = snapshot.val().destination;
   var frequency = snapshot.val().frequency;
   var firstTrain = snapshot.val().firstTrain;
 
-  var remainder = moment().diff(moment.unix(firstTrain), "minutes")%frequency;
+  var remainder = moment().diff(moment.unix(firstTrain), "minutes") % frequency;
   var minutes = frequency - remainder;
   var arrival = moment().add(minutes, "m").format("hh:mm A");
 
@@ -51,6 +52,6 @@ trainData.ref().on("child_added", function(snapshot){
   console.log(minutes);
   console.log(arrival);
 
-  $("#trainTable > tBody").append("<tr><td>"+name+"</td><td>"+destination+"</td><td>"+frequency+"</td><td>"+arrival+"</td><td>"+minutes+"</td></tr>");
+  $("#trainTable>tBody").append("<tr><td>" + name + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + arrival + "</td><td>" + minutes + "</td></tr>");
   console.log("I have been appended!");
 });
