@@ -35,8 +35,6 @@ $("#addTrainBtn").on("click", function(){
   $("#destinationInput").val("");
   $("#firstTrainInput").val("");
   $("#frequencyInput").val("");
-
-  return false;
 });
 
 trainData.ref().on("child_added", function(snapshot){
